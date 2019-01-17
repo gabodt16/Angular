@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+  <h1>¿Listo para jugar?</h1>
+  <h2>¡Vence a tus amigos en el juego de la vieja!</h2>
+</header>
+
+<section>
+  <div class="contenedor">
+    <table>
+      <tr>
+        <td (click)="ponerMarca(this.id)" id="casilla1"><img src="../assets/FotoX.jpg"></td>
+        <td (click)="ponerMarca(this.id)" id="casilla2"><img src="../assets/FotoCirculo.jpg"></td>
+        <td (click)="ponerMarca(this.id)" id="casilla3"></td>
+      </tr>
+
+      <tr id="central">
+        <td (click)="ponerMarca(this.id)" id="casilla4"><img src="../assets/FotoCirculo.jpg"></td>
+        <td (click)="ponerMarca(this.id)" id="casilla5"><img src="../assets/FotoX.jpg"></td>
+        <td (click)="ponerMarca(this.id)" id="casilla6"></td>
+      </tr>
+
+      <tr>
+        <td (onclick)="ponerMarca(this.id)" id="casilla7"></td>
+        <td (onclick)="ponerMarca(this.id)" id="casilla8"></td>
+        <td (click)="ponerMarca(this.id)" id="casilla9"><img src="../assets/FotoX.jpg"></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+
+</footer>

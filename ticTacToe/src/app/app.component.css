@@ -1,0 +1,46 @@
+/* Globales */
+
+*{
+    text-align: center;
+}
+
+/* Header */
+
+header h1{
+    margin-top: 60px;
+    font-size: 3em;
+}
+
+/* Table */
+
+table{
+    margin: 100px;
+    display: inline-block;
+    border-collapse: collapse;
+    /*background-color: aqua;*/
+}
+
+td{
+    width: 100px;
+    height: 100px;
+    /*background-color: greenyellow;*/
+}
+
+td:first-child{
+    border-right: 4px solid black;
+}
+
+td:last-child{
+    border-left: 4px solid black;
+}
+
+#central{
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+}
+
+img{
+    width: 70px;
+    height: 70px;
+}
+
