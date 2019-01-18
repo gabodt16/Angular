@@ -2,32 +2,36 @@
 <header>
   <h1>¿Listo para jugar?</h1>
   <h2>¡Vence a tus amigos en el juego de la vieja!</h2>
+  <h1 *ngIf="finDelJuego" id="mensajeGanador">¡{{mensajeGanador}} <img src="{{imgGanador}}">!</h1>
 </header>
 
 <section>
   <div class="contenedor">
     <table>
       <tr>
-        <td (click)="ponerMarca(0)" id="casilla1"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[0] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[0] === 2"></td>
-        <td (click)="ponerMarca(1)" id="casilla2"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[1] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[1] === 2"></td>
-        <td (click)="ponerMarca(2)" id="casilla3"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[2] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[2] === 2"></td>
+        <td (click)="ponerMarca(0)" id="casilla1"><img src="{{urls[0]}}" *ngIf="urls[0].length > 0"></td>
+        <td (click)="ponerMarca(1)" id="casilla2"><img src="{{urls[1]}}" *ngIf="urls[1].length > 0"></td>
+        <td (click)="ponerMarca(2)" id="casilla3"><img src="{{urls[2]}}" *ngIf="urls[2].length > 0"></td>
       </tr>
 
       <tr id="central">
-        <td (click)="ponerMarca(3)" id="casilla4"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[3] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[3] === 2"></td>
-        <td (click)="ponerMarca(4)" id="casilla5"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[4] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[4] === 2"></td>
-        <td (click)="ponerMarca(5)" id="casilla6"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[5] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[5] === 2"></td>
+        <td (click)="ponerMarca(3)" id="casilla4"><img src="{{urls[3]}}" *ngIf="urls[3].length > 0"></td>
+        <td (click)="ponerMarca(4)" id="casilla5"><img src="{{urls[4]}}" *ngIf="urls[4].length > 0"></td>
+        <td (click)="ponerMarca(5)" id="casilla6"><img src="{{urls[5]}}" *ngIf="urls[5].length > 0"></td>
       </tr>
 
       <tr>
-        <td (click)="ponerMarca(6)" id="casilla7"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[6] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[6] === 2"></td>
-        <td (click)="ponerMarca(7)" id="casilla8"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[7] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[7] === 2"></td>
-        <td (click)="ponerMarca(8)" id="casilla9"><img src="../assets/FotoCirculo.jpg" *ngIf="casillas[8] === 1"><img src="../assets/FotoX.jpg" *ngIf="casillas[8] === 2"></td>
+        <td (click)="ponerMarca(6)" id="casilla7"><img src="{{urls[6]}}" *ngIf="urls[6].length > 0"></td>
+        <td (click)="ponerMarca(7)" id="casilla8"><img src="{{urls[7]}}" *ngIf="urls[7].length > 0"></td>
+        <td (click)="ponerMarca(8)" id="casilla9"><img src="{{urls[8]}}" *ngIf="urls[8].length > 0"></td>
       </tr>
     </table>
   </div>
+
+  <button (click)="seRindio()" *ngIf="finDelJuego" class="btn btn1">¿Ya te rendiste?</button>
+  <button (click)="reiniciar()" *ngIf="finDelJuego" class="btn btn2">¡Quiero la revancha!</button>
 </section>
 
 <footer>
-
+  
 </footer>
