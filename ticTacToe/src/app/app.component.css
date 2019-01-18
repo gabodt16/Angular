@@ -1,6 +1,9 @@
 /* Globales */
 
-*{
+* {
+	padding: 0;
+	margin: 0;
+    box-sizing:border-box;
     text-align: center;
 }
 
@@ -28,24 +31,21 @@ header h2{
 
 /* Table */
 
-table{
-    margin: 0 100px;
+#tablero table{
     display: inline-block;
     border-collapse: collapse;
-    /*background-color: aqua;*/
 }
 
-td{
+#tablero table td{
     width: 100px;
     height: 100px;
-    /*background-color: greenyellow;*/
 }
 
-td:first-child{
+#tablero table td:first-child{
     border-right: 4px solid black;
 }
 
-td:last-child{
+#tablero table td:last-child{
     border-left: 4px solid black;
 }
 
@@ -65,7 +65,7 @@ img{
     background: none;
     padding: 10px 20px;
     font-size: 20px;
-    font-family: "montserrat";
+    font-family: "montserrat", sans-serif;
     cursor: pointer;
     margin: 60px 20px;
     transition: 0.8s;
@@ -122,3 +122,112 @@ img{
 .btn1:hover::before, .btn2:hover::before{
     height: 180%;
 }
+
+/* Marcador */
+
+#marcador{
+    position: absolute;
+    bottom: 85%;
+    left: 80%;
+}
+
+#marcador table{
+    display: inline-block;
+    border-collapse: collapse;
+    font-size: 1.4rem;
+}
+
+
+
+#marcador table td{
+    width: 60px;
+    height: 35px;
+    padding: 10px;
+}
+
+#marcador table tr:first-child {
+    border-bottom: 2px solid black;
+}
+
+#marcador table td:first-child{
+    border-right: 2px solid black;
+}
+
+#marcador table td:last-child{
+    border-left: 2px solid black;
+}
+
+#marcador button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#editBnt{
+    position: absolute;
+    top: 10%;
+}
+
+/* Pop Up para editar los nombres */
+
+.overlay{
+    font-family: "monserrat", sans-serif;
+    background-color: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popUp{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    border-radius: 3px;
+    padding: 20px;
+    width: 35%;
+}
+
+.popUp .cerrarPopUp{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #bbbbbb;
+    transition: 0.3s;
+}
+
+.popUp .cerrarPopUp:hover {
+    color: #000;
+}
+
+.popUp h3{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    /*opacity: 0;*/
+}
+
+.popUp h4{
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    /*opacity: 0;*/
+}
+
+.contenedorInputs{
+    width: 100%;
+    height: 52px;
+    margin-bottom: 20px;
+    line-height: 52px;
+    font-size: 18px;
+}
+
+.btnPopUp{
+    border-radius: 3px;
+}
+
+/* Animaciones del pop up */

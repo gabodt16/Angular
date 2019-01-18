@@ -5,7 +5,16 @@
   <h1 *ngIf="finDelJuego" id="mensajeGanador">¡{{mensajeGanador}} <img src="{{imgGanador}}">!</h1>
 </header>
 
-<section>
+<aside id="marcador">
+  <table>
+    <tr><td>{{x}}</td> <td>{{o}}</td> <td>Vieja</td></tr>
+    <tr><td>{{ptosX}}</td> <td>{{ptosO}}</td> <td>{{ptosV}}</td></tr>
+  </table>
+  <button (click)="abrirPopUp()" id="editBnt"><i class="fas fa-edit"></i></button>
+  <button id="verPtos"><i class="fas fa-sort-down"></i></button>
+</aside><!-- #marcador -->
+
+<section id="tablero">
   <div class="contenedor">
     <table>
       <tr>
@@ -26,11 +35,32 @@
         <td (click)="ponerMarca(8)" id="casilla9"><img src="{{urls[8]}}" *ngIf="urls[8].length > 0"></td>
       </tr>
     </table>
-  </div>
+  </div><!-- .contenedor -->
 
   <button (click)="seRindio()" *ngIf="finDelJuego" class="btn btn1">¿Ya te rendiste?</button>
   <button (click)="reiniciar()" *ngIf="finDelJuego" class="btn btn2">¡Quiero la revancha!</button>
-</section>
+</section><!-- #tablero -->
+
+<section *ngIf="estadoPopUp" id="contPopUp">
+  <div class="overlay">
+    <div class="popUp">
+      <a href="#" (click)="cerrarPopUp()" id="cerrarPopUp" class="cerrarPopUp"><i class="fas fa-times"></i></a>
+      <h3>Elige tu nombre</h3>
+      <h4>y dale un toque personal</h4>
+
+      <div class="contenedorInputs">
+        <div class="imput_area">
+          Nombre del jugador 1 (x) <input [(ngModel)]="x" class="input_text">
+        </div>
+        <div class="imput_area">
+          Nombre del jugador 2 (o) <input [(ngModel)]="o" class="input_text">
+        </div>
+      </div>
+
+      <button (click)="cerrarPopUp()" class="btn btn2 btnPopUp">Listo</button>
+    </div><!-- .popUp -->
+  </div><!-- .overlay -->
+</section><!-- #contPopUp -->
 
 <footer>
   

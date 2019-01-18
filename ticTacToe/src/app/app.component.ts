@@ -15,6 +15,12 @@ export class AppComponent {
   finDelJuego : boolean = false;
   imgGanador : string = "";
   mensajeGanador : string = "";
+  x : string = "X";
+  o : string = "O";
+  ptosX : number = 0;
+  ptosO : number = 0;
+  ptosV : number = 0;
+  estadoPopUp : boolean = false;
 
 
   ponerMarca(num){
@@ -42,28 +48,28 @@ export class AppComponent {
 
     if (this.urls[0] === this.urls[1] && this.urls[0] === this.urls[2] && this.urls[0] !== "") {
       this.finDelJuego = true;
-      this.mostrarMensajeGanador(true, this.urls[0])
+      this.mostrarMensajeGanador(true, this.urls[0]);
     }else if (this.urls[0] === this.urls[3] && this.urls[0] === this.urls[6] && this.urls[0] !== "") {
       this.finDelJuego = true;
-      this.mostrarMensajeGanador(true, this.urls[0])
+      this.mostrarMensajeGanador(true, this.urls[0]);
     }else if (this.urls[0] === this.urls[4] && this.urls[0] === this.urls[8] && this.urls[0] !== "") {
       this.finDelJuego = true;
-      this.mostrarMensajeGanador(true, this.urls[0])
+      this.mostrarMensajeGanador(true, this.urls[0]);
     }else if (this.urls[1] === this.urls[4] && this.urls[1] === this.urls[7] && this.urls[1] !== "") {
       this.finDelJuego = true;
-      this.mostrarMensajeGanador(true, this.urls[1])
+      this.mostrarMensajeGanador(true, this.urls[1]);
     }else if (this.urls[2] === this.urls[5] && this.urls[2] === this.urls[8] && this.urls[2] !== "") {
       this.finDelJuego = true;
-      this.mostrarMensajeGanador(true, this.urls[2])
+      this.mostrarMensajeGanador(true, this.urls[2]);
     }else if (this.urls[2] === this.urls[4] && this.urls[2] === this.urls[6] && this.urls[2] !== "") {
       this.finDelJuego = true;
-      this.mostrarMensajeGanador(true, this.urls[2])
+      this.mostrarMensajeGanador(true, this.urls[2]);
     }else if (this.urls[3] === this.urls[4] && this.urls[3] === this.urls[5] && this.urls[3] !== "") {
       this.finDelJuego = true;
-      this.mostrarMensajeGanador(true, this.urls[3])
+      this.mostrarMensajeGanador(true, this.urls[3]);
     }else if (this.urls[6] === this.urls[7] && this.urls[6] === this.urls[8] && this.urls[6] !== "") {
       this.finDelJuego = true;
-      this.mostrarMensajeGanador(true, this.urls[6])
+      this.mostrarMensajeGanador(true, this.urls[6]);
     }else if (!result){
       this.finDelJuego = true;
       this.mostrarMensajeGanador(false, "");
@@ -74,11 +80,17 @@ export class AppComponent {
     if (selector) {
       this.imgGanador = ganador;
       this.mensajeGanador = "Felicidades el ganador es ";
+      if (ganador === "../assets/FotoX.jpg") {
+        this.ptosX ++;
+      } else {
+        this.ptosO ++;
+      }
     } else {
       let num = Math.floor(Math.random() * this.viejas.length);
       console.log(num);
       this.imgGanador = this.viejas[num];
       this.mensajeGanador = "Que mal, la vieja ganó... ";
+      this.ptosV ++;
     }
     
   }
@@ -91,6 +103,17 @@ export class AppComponent {
   }
 
   seRindio(){
+    this.reiniciar();
+    this.ptosX = 0;
+    this.ptosO = 0;
+    this.ptosV = 0;
+  }
 
+  abrirPopUp(){
+    this.estadoPopUp = true;
+  }
+
+  cerrarPopUp(){
+    this.estadoPopUp = false;
   }
 }
