@@ -21,7 +21,8 @@ export class AppComponent {
   ptosO : number = 0;
   ptosV : number = 0;
   estadoPopUp : boolean = false;
-
+  estadoIa : boolean = false;
+  iaRegistro : number[] = [];
 
   ponerMarca(num){
     let result = this.clicados.some(pieza => pieza === num);
@@ -38,8 +39,12 @@ export class AppComponent {
       }
 
       this.ganador();
-    }
 
+      if (this.turno === false && this.estadoIa) {
+        this.iaFacil();
+      }
+
+    }
     
   }
 
@@ -115,5 +120,31 @@ export class AppComponent {
 
   cerrarPopUp(){
     this.estadoPopUp = false;
+  }
+
+  detectarEspaciosVacios(){
+    //let i = 0; i < this.urls.length; i++
+    for (let i = 0; i < this.urls.length; i++) {
+      if (this.urls[i] === "") {
+        this.iaRegistro.push(i);
+      }
+    }
+  }
+
+  iaFacil(){
+    this.detectarEspaciosVacios();
+    let rand = Math.floor(Math.random() * this.iaRegistro.length);
+    this.ponerMarca(this.iaRegistro[rand]);
+    this.iaRegistro = [];
+  }
+
+  activarIa(){
+    this.estadoIa = true;
+    this.o = "IA";
+  }
+
+  desactivarIa(){
+    this.estadoIa = false;
+    this.o = "O";
   }
 }
