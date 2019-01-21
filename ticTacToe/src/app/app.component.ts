@@ -21,7 +21,8 @@ export class AppComponent {
   ptosO : number = 0;
   ptosV : number = 0;
   estadoPopUp : boolean = false;
-  estadoIa : boolean = false;
+  estadoIaFacil : boolean = false;
+  estadoIaImposible : boolean = false;
   iaRegistro : number[] = [];
 
   ponerMarca(num){
@@ -40,8 +41,10 @@ export class AppComponent {
 
       this.ganador();
 
-      if (this.turno === false && this.estadoIa) {
+      if (this.turno === false && this.estadoIaFacil) {
         this.iaFacil();
+      } else if (this.turno === false && this.estadoIaImposible) {
+        this.iaImposible();
       }
 
     }
@@ -138,13 +141,74 @@ export class AppComponent {
     this.iaRegistro = [];
   }
 
+  iaImposible(){
+    if (this.IaVerificarIguales(0,1) || this.IaVerificarIguales(0,2) || this.IaVerificarIguales(1,2) || this.IaVerificarIguales(3,4) || this.IaVerificarIguales(3,5) || this.IaVerificarIguales(4,5) || this.IaVerificarIguales(6,7) || this.IaVerificarIguales(6,8) || this.IaVerificarIguales(7,8)) {
+      this.IaBuscarParaTapar(1);
+    } else if(this.IaVerificarIguales(0,3) || this.IaVerificarIguales(0,6) || this.IaVerificarIguales(3,6) || this.IaVerificarIguales(1,4) || this.IaVerificarIguales(1,7) || this.IaVerificarIguales(4,7) || this.IaVerificarIguales(2,5) || this.IaVerificarIguales(2,8) || this.IaVerificarIguales(5,8) || this.IaVerificarIguales(6,4) || this.IaVerificarIguales(6,2) || this.IaVerificarIguales(4,2)){
+      this.IaBuscarParaTapar(3);
+    }else if(this.IaVerificarIguales(0,4) || this.IaVerificarIguales(0,8) || this.IaVerificarIguales(4,8)){
+      this.IaBuscarParaTapar(4);
+    }
+  }
+
+/*
+  iaImposible(){
+    if (this.IaVerificarIguales(0,1) || this.IaVerificarIguales(0,2) || this.IaVerificarIguales(1,2) || this.IaVerificarIguales(3,4) || this.IaVerificarIguales(3,5) || this.IaVerificarIguales(4,5) || this.IaVerificarIguales(6,7) || this.IaVerificarIguales(6,8) || this.IaVerificarIguales(7,8)) {
+      this.IaBuscarParaTapar(1);
+    } else if(this.IaVerificarIguales(0,3) || this.IaVerificarIguales(0,6) || this.IaVerificarIguales(3,6) || this.IaVerificarIguales(1,4) || this.IaVerificarIguales(1,7) || this.IaVerificarIguales(4,7) || this.IaVerificarIguales(2,5) || this.IaVerificarIguales(2,8) || this.IaVerificarIguales(5,8) || this.IaVerificarIguales(6,4) || this.IaVerificarIguales(6,2) || this.IaVerificarIguales(4,2)){
+      this.IaBuscarParaTapar(3);
+    }else if(this.IaVerificarIguales(0,4) || this.IaVerificarIguales(0,8) || this.IaVerificarIguales(4,8)){
+      this.IaBuscarParaTapar(4);
+    }
+  }
+*/
   activarIa(){
-    this.estadoIa = true;
+    this.estadoIaFacil = true;
     this.o = "IA";
   }
 
   desactivarIa(){
-    this.estadoIa = false;
+    this.estadoIaFacil = false;
     this.o = "O";
+  }
+
+  activarIaImposible(){
+    this.estadoIaImposible = true;
+    this.o = "IA";
+  }
+
+  desactivarIaImposible(){
+    this.estadoIaImposible = false;
+    this.o = "O";
+  }
+
+  IaBuscarParaTapar(incremento, inicio){
+    for (let i = inicio; i < this.urls.length; i += incremento) {
+      let cont = 0;
+      console.log("inicio");
+      console.log(i);
+      
+     
+      if (this.urls[i] === "") {
+        console.log("dentro1");
+        this.ponerMarca(this.iaRegistro[i]);
+        break;
+      } else if(this.turno === false){
+        console.log("dentro2");
+        this.iaFacil();
+      }
+      
+      console.log("vuelta " + cont);
+      
+      cont ++;
+    }
+  }
+
+  IaVerificarIguales(num1, num2){
+    if (this.urls[num1] === this.urls[num2] && this.urls[num1] !== "") {
+      return true;
+    }else{
+      return false;
+    }
   }
 }
