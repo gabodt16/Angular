@@ -142,12 +142,22 @@ export class AppComponent {
   }
 
   iaImposible(){
-    if (this.IaVerificarIguales(0,1) || this.IaVerificarIguales(0,2) || this.IaVerificarIguales(1,2) || this.IaVerificarIguales(3,4) || this.IaVerificarIguales(3,5) || this.IaVerificarIguales(4,5) || this.IaVerificarIguales(6,7) || this.IaVerificarIguales(6,8) || this.IaVerificarIguales(7,8)) {
-      this.IaBuscarParaTapar(1);
-    } else if(this.IaVerificarIguales(0,3) || this.IaVerificarIguales(0,6) || this.IaVerificarIguales(3,6) || this.IaVerificarIguales(1,4) || this.IaVerificarIguales(1,7) || this.IaVerificarIguales(4,7) || this.IaVerificarIguales(2,5) || this.IaVerificarIguales(2,8) || this.IaVerificarIguales(5,8) || this.IaVerificarIguales(6,4) || this.IaVerificarIguales(6,2) || this.IaVerificarIguales(4,2)){
-      this.IaBuscarParaTapar(3);
+    if (this.IaVerificarIguales(0,1) || this.IaVerificarIguales(0,2) || this.IaVerificarIguales(1,2)) {
+      this.IaBuscarParaTapar(1, 0);
+    } else if(this.IaVerificarIguales(3,4) || this.IaVerificarIguales(3,5) || this.IaVerificarIguales(4,5)){
+      this.IaBuscarParaTapar(1, 3);
+    }else if(this.IaVerificarIguales(6,7) || this.IaVerificarIguales(6,8) || this.IaVerificarIguales(7,8)){
+      this.IaBuscarParaTapar(1, 6);
+    }else if(this.IaVerificarIguales(0,3) || this.IaVerificarIguales(0,6) || this.IaVerificarIguales(3,6)){
+      this.IaBuscarParaTapar(3, 0);
+    }else if(this.IaVerificarIguales(1,4) || this.IaVerificarIguales(1,7) || this.IaVerificarIguales(4,7)){
+      this.IaBuscarParaTapar(3, 1);
+    }else if(this.IaVerificarIguales(2,5) || this.IaVerificarIguales(2,8) || this.IaVerificarIguales(5,8)){
+      this.IaBuscarParaTapar(3, 2);
+    }else if(this.IaVerificarIguales(6,4) || this.IaVerificarIguales(6,2) || this.IaVerificarIguales(4,2)){
+      this.IaBuscarParaTapar(3, 2);
     }else if(this.IaVerificarIguales(0,4) || this.IaVerificarIguales(0,8) || this.IaVerificarIguales(4,8)){
-      this.IaBuscarParaTapar(4);
+      this.IaBuscarParaTapar(4, 0);
     }
   }
 
