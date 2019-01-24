@@ -5,17 +5,7 @@
   <h1 *ngIf="finDelJuego" id="mensajeGanador">¡{{mensajeGanador}} <img src="{{imgGanador}}">!</h1>
 </header>
 
-<aside id="marcador">
-  <table>
-    <tr><td>{{x}}</td> <td>{{o}}</td> <td>Vieja</td></tr>
-    <tr><td>{{ptosX}}</td> <td>{{ptosO}}</td> <td>{{ptosV}}</td></tr>
-  </table>
-  <button (click)="abrirPopUp()" id="editBnt"><i class="fas fa-edit"></i></button>
-  <button (click)="desactivarIa()" id="verPtos"><i class="fas fa-sort-up"></i></button>
-  <button (click)="activarIa()" id="verPtos"><i class="fas fa-sort-down"></i></button>
-  <button (click)="activarIaImposible()" id="verPtos"><i class="fas fa-sort-down"></i></button>
-</aside><!-- #marcador -->
-
+<app-score (outputString)="popUp($event)" [ptosXH]="ptosX" [ptosOH]="ptosO" [xH]="x" [oH]="o" [ptosVH]="ptosV"></app-score>
 <section id="tablero">
   <div class="contenedor">
     <table>

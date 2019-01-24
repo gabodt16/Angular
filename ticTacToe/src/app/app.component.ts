@@ -117,16 +117,21 @@ export class AppComponent {
     this.ptosV = 0;
   }
 
+  popUp(event){
+    this.estadoPopUp = event;
+  }
+
+  /*
   abrirPopUp(){
     this.estadoPopUp = true;
   }
+  */
 
   cerrarPopUp(){
     this.estadoPopUp = false;
   }
-
+  
   detectarEspaciosVacios(){
-    //let i = 0; i < this.urls.length; i++
     for (let i = 0; i < this.urls.length; i++) {
       if (this.urls[i] === "") {
         this.iaRegistro.push(i);

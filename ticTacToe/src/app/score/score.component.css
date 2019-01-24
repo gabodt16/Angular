@@ -1,0 +1,42 @@
+/* Marcador */
+
+#marcador{
+    position: absolute;
+    bottom: 80%;
+    left: 75%;
+}
+
+#marcador table{
+    display: inline-block;
+    border-collapse: collapse;
+    font-size: 1.4rem;
+}
+
+#marcador table td{
+    width: 60px;
+    height: 35px;
+    padding: 10px;
+}
+
+#marcador table tr:first-child {
+    border-bottom: 2px solid black;
+}
+
+#marcador table td:first-child{
+    border-right: 2px solid black;
+}
+
+#marcador table td:last-child{
+    border-left: 2px solid black;
+}
+
+#marcador button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#editBnt{
+    position: absolute;
+    top: 10%;
+}
