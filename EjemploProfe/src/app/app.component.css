@@ -1,0 +1,19 @@
+header, footer, section {
+    text-align: center;
+}
+
+.avatar {
+    margin: 1rem;
+    border-radius: 100%;
+}
+
+.input_area, .input_area input {
+    font-size: 1.5rem;
+}
+
+footer button {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+

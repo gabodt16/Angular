@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+  <h1>Bienvenidos a la tarjeta de presentación online!</h1>
+</header>
+<section>
+  <div class="input_area">
+    Nombre: <input [(ngModel)]="name" [readonly]="isDisabled" class="input_text"/>
+  </div>
+  <morph-avatar (outputString)="handleChildEvent($event)" [avatars]="urls"></morph-avatar>
+  <div class="input_area">
+    Trabajo:  <input [(ngModel)]="position" [readonly]="isDisabled" id="algo" class="input_text"/>
+  </div>
+</section>
+<footer>
+  <p *ngIf="previousPositions.length>3">Hola!</p>
+  <p *ngFor="let pos of previousPositions">{{pos}}</p>
+  <button (click)="saveEvent()" class="save_button">{{buttonText}}</button>
+  <button (click)="showInformation()">Show Information</button>
+  <button (click)="resetInformation()">Reset Information</button>
+</footer>
+
+<router-outlet></router-outlet>
